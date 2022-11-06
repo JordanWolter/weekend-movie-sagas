@@ -22,7 +22,7 @@ function MovieList() {
         console.log('id', id)
 
         dispatch({
-            type: 'FETCH_ID',
+            type: 'FETCH_DETAILS',
             payload: id
         })
 

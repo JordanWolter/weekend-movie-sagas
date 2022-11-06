@@ -4,10 +4,16 @@ import { useHistory } from "react-router-dom";
 // import { $CombinedState } from 'redux';
 
 function Details() {
+    const history = useHistory()
     const id = useSelector(store => store.id);
     const movies = useSelector(store => store.movies);
 
     console.log(id);
+
+    // goes back to list page
+    const back = () => {
+        history.push('/');
+    }
 
     return (
         <>
@@ -19,7 +25,7 @@ function Details() {
                                 <h3>{movie.title}</h3>
                                 <img src={movie.poster} alt={movie.title} />
                                 <p>{movie.description}</p>
-                                <button onClick={() => back}>Back</button>
+                                <button onClick={back}>Back</button>
                             </div>
                         );
                     }
