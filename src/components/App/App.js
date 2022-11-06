@@ -2,22 +2,26 @@ import {HashRouter as Router, Route} from 'react-router-dom';
 import './App.css';
 import MovieList from '../MovieList/MovieList'
 import Details from '../Details/Details';
+import MovieForm from '../MovieForm/MovieForm';
 
 function App() {
   return (
     <div className="App">
       <h1>The Movies Saga!</h1>
       <Router>        
-        <Route path="/" exact>
+        <Route exact path="/">
           <MovieList />
         </Route>
         
         {/* Details page */}
-        <Route>
-          <Details path="/details" exact/>
+        <Route exact path="/details">
+          <Details />
         </Route>
 
         {/* Add Movie page */}
+        <Route>
+          <MovieForm exact path= "/form"/>
+        </Route>
       </Router>
     </div>
   );
