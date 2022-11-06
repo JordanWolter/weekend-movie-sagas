@@ -18,14 +18,15 @@ function* rootSaga() {
     yield takeEvery('ADD_MOVIE', addMovie);
 }
 
-function* addMovie(){
+function* addMovie(action){
+    console.log('ACTION>>>>>>>', action.payload)
     try {
-        yield axios.post(`/api/movie`);
+        yield axios.post(`/api/movie`, action.payload);
 
-        console.log('get all:', details.data);
+        // console.log('get all:', details.data);
         yield put({
-            type: 'SET_GENRES',
-            payload: details.data
+            type: 'FETCH_MOVIES',
+            // payload: details.data
         });
 
     } catch {

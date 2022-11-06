@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from "react-router-dom";
+import './Details.css'
 
 function Details() {
     const history = useHistory()
@@ -8,12 +9,6 @@ function Details() {
     const movies = useSelector(store => store.movies);
     const genres = useSelector(store => store.genres);
 
-    // to get movie on refresh
-    // useEffect({
-
-    // },[])
-
-    // goes back to list page
     const back = () => {
 
         history.push('/');
@@ -26,7 +21,7 @@ function Details() {
                     return (
                         <div key={movie.id} >
                             <h3>{movie.title}</h3>
-                            <img src={movie.poster} alt={movie.title} />
+                            <img className='posterImage' src={movie.poster} alt={movie.title} />
                             {genres.map(genre => (
                                 <p key={genre.name}>{genre.name}</p>
                             ))}

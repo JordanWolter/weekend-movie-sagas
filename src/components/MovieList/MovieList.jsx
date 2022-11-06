@@ -16,6 +16,12 @@ function MovieList() {
         dispatch({ type: 'FETCH_MOVIES' });
     }, []);
 
+    const addMovie = () => {
+
+        history.push('/form');
+    
+      }
+
     //got to detail page
     const id = (id) => {
 
@@ -32,12 +38,14 @@ function MovieList() {
     return (
         <main>
             <h1>MovieList</h1>
+            {/* <img src='https://m.media-amazon.com/images/M/MV5BN2M3Y2NhMGYtYjUxOS00M2UwLTlmMGUtYzY4MzFlNjZkYzY2XkEyXkFqcGdeQXVyODc0OTEyNDU@._V1_.jpg'/> */}
+            <button onClick={addMovie}>Add Movie</button>
             <section className="movies">
                 {movies.map(movie => {
                     return (
                         <div onClick={() => id(movie.id)} key={movie.id} >
                             <h3>{movie.title}</h3>
-                            <img src={movie.poster} alt={movie.title}/>
+                            <img className='posterImage' src={movie.poster} alt={movie.title}/>
                         </div>
                     );
                 })}
