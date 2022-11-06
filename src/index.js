@@ -14,7 +14,24 @@ import axios from 'axios';
 // Create the rootSaga generator function
 function* rootSaga() {
     yield takeEvery('FETCH_MOVIES', fetchAllMovies);
+    // yield takeEvery('FETCH_DETAILS', fetchDetails)
 }
+
+// function* fetchDetails(action) {
+//     console.log('action', action.params)
+//     let params = action.params
+//     try {
+//         const details = yield axios.get('/api/movie', { params });
+//         console.log('get all:', details.data);
+//         yield put({
+//             type: 'SET_MOVIES',
+//             payload: details.data
+//         });
+
+//     } catch {
+//         console.log('get all error');
+//     }
+// }
 
 function* fetchAllMovies() {
     // get all movies from the DB
@@ -26,7 +43,7 @@ function* fetchAllMovies() {
     } catch {
         console.log('get all error');
     }
-        
+
 }
 
 // Create sagaMiddleware
@@ -37,6 +54,8 @@ const movies = (state = [], action) => {
     switch (action.type) {
         case 'SET_MOVIES':
             return action.payload;
+        // case 'FETCH_DETAILS':
+
         default:
             return state;
     }
@@ -52,15 +71,26 @@ const genres = (state = [], action) => {
     }
 }
 
+const id = (state = 0, action) => {
+    switch (action.type) {
+        case 'FETCH_ID':
+            return action.payload;
+        default:
+            return state;
+    }
+}
+
 // Create one store that all components can use
 const storeInstance = createStore(
     combineReducers({
         movies,
         genres,
+        id
     }),
     // Add sagaMiddleware to our store
     applyMiddleware(sagaMiddleware, logger),
 );
+
 
 // Pass rootSaga into our sagaMiddleware
 sagaMiddleware.run(rootSaga);
@@ -68,7 +98,7 @@ sagaMiddleware.run(rootSaga);
 ReactDOM.render(
     <React.StrictMode>
         <Provider store={storeInstance}>
-        <App />
+            <App />
         </Provider>
     </React.StrictMode>,
     document.getElementById('root')
