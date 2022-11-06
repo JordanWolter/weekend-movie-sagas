@@ -23,31 +23,24 @@ function* addMovie(action){
     try {
         yield axios.post(`/api/movie`, action.payload);
 
-        // console.log('get all:', details.data);
         yield put({
             type: 'FETCH_MOVIES',
-            // payload: details.data
         });
 
     } catch {
-        console.log('get all error');
+        console.log('add error');
     }
 }
 
 function* fetchDetails(action) {
     console.log('ACTION<<<<<<', action.payload)
-    // let id = action.payload
     try {
         const details = yield axios.get(`/api/genre`, ({
             params: {
                 id: action.payload
             } 
         }));
-        // dispatch({
-        //     type: 'SET_ID',
-        //     payload: action.payload
-        // })
-        console.log('get all:', details.data);
+        console.log('get genre:', details.data);
         yield put({
             type: 'SET_GENRES',
             payload: details.data
@@ -79,8 +72,6 @@ const movies = (state = [], action) => {
     switch (action.type) {
         case 'SET_MOVIES':
             return action.payload;
-        // case 'FETCH_DETAILS':
-
         default:
             return state;
     }
