@@ -53,7 +53,7 @@ function MovieList() {
             <Grid2 container spacing={3} className="movies">
                 {movies.map(movie => {
                     return (
-                        <Grid2 xs={6} sm={4} md={3} lg={3} onClick={() => id(movie.id)} key={movie.id} >
+                        <Grid2 xs={6} sm={4} md={3} lg={3} key={movie.id} >
                             <Box
                                 sx={{
                                     width: 225,
@@ -72,6 +72,7 @@ function MovieList() {
                                         cursor: 'pointer'
                                     },
                                 }}
+                                onClick={() => id(movie.id)}
                             >
                                 <h3>{movie.title}</h3>
                                 <img className='posterImage' src={movie.poster} alt={movie.title} />

@@ -13,7 +13,7 @@
     color: whitesmoke;
 }
 
-/* .fade {
+.fade {
     position: relative;
     width: 100%;
     min-height: 60vh;
@@ -63,4 +63,4 @@
       top: -6000px;
       transform: rotateX(25deg) translateZ(-2500px);
     }
-  } */
+  }
