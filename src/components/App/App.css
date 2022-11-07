@@ -3,8 +3,17 @@
   
 }
 
+#title{
+  color: whitesmoke;
+}
+
+#head{
+  color: whitesmoke;
+}
+
 body {
-  background-image: linear-gradient(to bottom right, rgb(10, 0, 188), rgb(195, 4, 125));
+  background-image: linear-gradient(to bottom right, rgb(33, 1, 92), rgb(137, 2, 88));
+  height: 100%;
 }
 
 
@@ -12,15 +21,17 @@ body {
   background-color: #222;
   height: 150px;
   padding: 20px;
-  color: white;
+  color: whitesmoke;
 }
 
 .App-title {
   font-size: 1.5em;
+  color: whitesmoke;
 }
 
 .App-intro {
   font-size: large;
+  color: whitesmoke;
 }
 
 @keyframes App-logo-spin {
@@ -69,3 +80,4 @@ body {
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {background-color: #3e8e41;}
+

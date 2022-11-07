@@ -24,7 +24,7 @@ function Details() {
                 if (movie.id === id) {
                     return (
                         <div key={movie.id} >
-                            <h3>{movie.title}</h3>
+                            <h3 className='movieTitle'>{movie.title}</h3>
                             <Box
                                 sx={{
                                     width: 750,
@@ -33,8 +33,9 @@ function Details() {
                                     paddingTop: 1.5,
                                     paddingBottom: 2,
                                     backgroundColor: 'black',
+                                    borderRadius: 1
                                 }}
-                                >
+                            >
                                 <Box
                                     sx={{
                                         width: 600,
@@ -43,15 +44,15 @@ function Details() {
                                         paddingTop: 1.5,
                                         paddingBottom: 1,
                                         backgroundColor: 'white',
+                                        borderRadius: 1,
                                     }}
                                 >
                                     <img className='posterImage' src={movie.poster} alt={movie.title} />
                                 </Box>
                             </Box>
 
-
                             {genres.map(genre => (
-                                <p key={genre.name}>{genre.name}</p>
+                                <p className='genre' key={genre.name}>{genre.name}</p>
                             ))}
                             <Box
                                 sx={{
@@ -65,9 +66,16 @@ function Details() {
                                     backgroundColor: 'lightgrey',
                                 }}
                             >
+                                {/* <div className="fade">
+                                <section className="star-wars">
+                                    <div className="crawl"> */}
                                 <p>{movie.description}</p>
+                                {/* </div>
+                                </section>
+                            </div> */}
+
                             </Box>
-                            <Button variant='contained' startIcon={<ArrowBackIcon />} onClick={back}>Back To List</Button>
+                            <Button variant='contained' startIcon={<ArrowBackIcon />} onClick={back} sx={{ marginBottom: 500 }}>Back To List</Button>
                         </div>
                     );
                 }

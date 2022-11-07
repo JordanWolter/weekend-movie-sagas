@@ -2,6 +2,7 @@ import { Button, Grid, TextField } from '@material-ui/core';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import CancelIcon from '@mui/icons-material/Cancel';
 import Grid2 from '@mui/material/Unstable_Grid2'; // Grid version 2
+import Stack from '@mui/material/Stack';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from "react-router-dom";
@@ -62,7 +63,7 @@ function MovieForm() {
     };
 
     return (
-        <Grid2 container spacing={5}>
+        <Stack spacing={3} width={500} alignItems='center' margin='auto'>
             <TextField required id="outlined-basic" 
             label="Movie Title" variant="outlined" 
             type='text' onChange={inputTitle} />
@@ -95,7 +96,7 @@ function MovieForm() {
             </div>
             <Button variant='contained' startIcon={<AddCircleIcon/>} onClick={submit}>Add Movie</Button>
             <Button variant='contained' startIcon={<CancelIcon/>}onClick={cancel}>Cancel</Button>
-        </Grid2>
+        </Stack>
     );
 };
 export default MovieForm;

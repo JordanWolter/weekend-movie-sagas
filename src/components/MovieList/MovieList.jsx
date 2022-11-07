@@ -48,7 +48,7 @@ function MovieList() {
 
     return (
         <main>
-            <h1>MovieList</h1>
+            <h1 id='title'>MovieList</h1>
             <Button variant='contained' startIcon={<AddCircleIcon />} onClick={addMovie}>Add Movie</Button>
             <Grid2 container spacing={3} className="movies">
                 {movies.map(movie => {
