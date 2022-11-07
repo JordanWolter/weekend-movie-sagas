@@ -1,3 +1,7 @@
+import { Button, Grid, TextField } from '@material-ui/core';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
+import CancelIcon from '@mui/icons-material/Cancel';
+import Grid2 from '@mui/material/Unstable_Grid2'; // Grid version 2
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from "react-router-dom";
@@ -58,10 +62,19 @@ function MovieForm() {
     };
 
     return (
-        <>
-            <input type='text' placeholder="Movie Title" onChange={inputTitle} />
-            <input placeholder="Image URL" onChange={inputUrl} />
-            <textarea type='text' placeholder="Move Description" onChange={inputDescription} />
+        <Grid2 container spacing={5}>
+            <TextField required id="outlined-basic" 
+            label="Movie Title" variant="outlined" 
+            type='text' onChange={inputTitle} />
+
+            <TextField required id="outlined-basic" 
+            label="Image URL" variant="outlined" 
+            type='text' onChange={inputUrl} />
+
+            <TextField required multiline id="outlined-basic" 
+            label="Move Description" type='text' 
+            variant="outlined"  onChange={inputDescription} />
+
             <div className="dropdown">
                 <button className="dropbtn">Genre</button>
                 <div className="dropdown-content">
@@ -80,9 +93,9 @@ function MovieForm() {
                     <a onClick={() => setGenre(13)}>Superhero</a>
                 </div>
             </div>
-            <button onClick={submit}>Add Movie</button>
-            <button onClick={cancel}>Cancel</button>
-        </>
+            <Button variant='contained' startIcon={<AddCircleIcon/>} onClick={submit}>Add Movie</Button>
+            <Button variant='contained' startIcon={<CancelIcon/>}onClick={cancel}>Cancel</Button>
+        </Grid2>
     );
 };
 export default MovieForm;
